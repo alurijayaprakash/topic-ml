@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+        body {
+      background-color: lightred;
+      color: black;
+    }
+
+    h1 {
+      color: black;
+      text-align: center;
+    }
+    .centre {
+      margin: auto;
+      /*width: 60%;*/
+      box-sizing: content-box;
+      background-color: lightyellow;
+      width: 1000px;
+      height: 150px;
+      padding: 30px;
+      align-self: center;
+      border: 2px solid black;
+     }
+     ul {
+      list-style-image: url('sqpurple.gif');
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 30%;
+      background-color: lightpink;
+    }
+    table, td, th {
+  background-color: lightblue;
+    }
+
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: lightyellow;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+  </style>
+  </head>
+   <body>
+
+      <h1>Topic Modelling Analysis </h1>
+
+      <div class = "centre">
+      <p> {{res}} </p>
+      <p> The dimension of the data set is: {{old}} </p>
+      <p> The preprocessing is done.
+      <p>  </p>
+      <p> The dimension of the updated dataset is : {{new}} </p>
+    </div>
+<p> </p>
+
+      <p> The analysis is done with performance results </p>
+      <p> The evaluation report for all the algorithms is shown in the below table. </p>
+      <p> Ordered by sorting Silhoutte Score - The larger the value,
+      better the performance.</p>
+
+      <h3> Evaluations</h3>
+        {% for table in dataframe %}
+       <table>
+            <td>
+            {{ table|safe }}
+          </td>
+        </table>
+      {% endfor %}
+
+
+
+        <div class = "card">
+          <h3> Word2Vector Analysis </h3>
+        <form action = "http://localhost:5000/word2Vec/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "Word2Vec" /></p>
+        </form>
+      </div>
+
+
+          <div class = "card">
+            <h3> Latent Semantic Analysis </h3>
+         <form action = "http://localhost:5000/LSA/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "LSA" /></p>
+        </form>
+      </div>
+
+
+        <div class = "card">
+          <h3> Non Negative Matrix Factorization </h3>
+        <form action = "http://localhost:5000/NMF/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "NMF" /></p>
+        </form>
+      </div>
+
+        <div class = "card">
+          <h3> Latent Dirichlet Allocation </h3>
+        <form action = "http://localhost:5000/LDA/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "LDA" /></p>
+        </form>
+      </div>
+
+
+         <div class = "card">
+          <h3>Document2Vector Analysis </h3>
+         <form action = "http://localhost:5000/D2V/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "Doc2Vec" /></p>
+        </form>
+      </div>
+
+
+   </body>
+</html>

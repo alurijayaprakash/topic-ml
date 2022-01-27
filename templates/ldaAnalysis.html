@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+
+<head>
+  <style>
+        body {
+      background-color: white;
+      color: black;
+    }
+
+    h1 {
+      color: black;
+      text-align: center;
+    }
+    .centre {
+      margin: auto;
+      /*width: 60%;*/
+      box-sizing: content-box;
+      background-color: lightyellow;
+      width: 1000px;
+      height: 100px;
+      padding: 30px;
+      align-self: center;
+      border: 2px solid black;
+     }
+     ul {
+      list-style-image: url('sqpurple.gif');
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 30%;
+      background-color: lightpink;
+    }
+    table, td, th {
+  background-color: lightblue;
+    }
+
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: lightyellow;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+  </style>
+  </head>
+
+
+
+   <body>
+      <h1>Latent Dirichlet Allocation (LDA)  </h1>
+
+       <div class = "centre">
+      <h3> LDA method returns the probability of the document belonging to the cluster.
+        Based on the value of probability, cluster with higtest value is assigned to the documents.</h3>
+      <h3> The number of clusters : {{clusters}} </h3>
+    </div>
+
+
+      <h2> 1. Clustering for LDA probabilities (highest value)</h2>
+
+       {% for table in lda_count %}
+            <table>
+            <td>
+            {{ table|safe }}
+          </td>
+        </table>
+      {% endfor %}
+
+      <image src = "{{ url_for('static', filename = 'images/lda_pie.jpg')}}"
+      style="width:500px">
+
+        <table>
+      <thead><tr><th>Cluster</th><th>Frequent Words</th></tr></thead>
+      {% for k, v in wordslda.items() %}
+      <tbody>
+      <tr><td> {{k}}</td><td>{{v}}</td></tr>
+      {% endfor %}
+      </tbody>
+      </table>
+
+
+
+          <div class = "card">
+          <p> To visualize clusters and their frequent words </p>
+        <form action = "http://localhost:5000/LDA_words/{{clusters}}" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "LDA cluster words" /></p>
+        </form>
+      </div>
+
+        <div class = "card">
+         <p> Download the data here</p>
+           <form action = "http://localhost:5000/LDA_data" method = "POST">
+         <p><input class = "button button1" type = "submit" value = "LDA Data" /></p>
+        </form>
+      </div>
+
+
+
+   </body>
+</html>

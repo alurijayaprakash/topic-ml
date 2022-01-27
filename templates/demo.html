@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+
+    <style>
+        body {
+      background-color: white;
+      color: black;
+    }
+
+    h1 {
+      color: black;
+      text-align: center;
+    }
+    .centre {
+      margin: auto;
+      /*width: 60%;*/
+      box-sizing: content-box;
+      background-color: lightyellow;
+      width: 1000px;
+      height: 80px;
+      padding: 30px;
+      align-self: center;
+      border: 2px solid black;
+     }
+
+    .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+    }
+
+    .float-child {
+        width: 40%;
+        height: 100px;
+        float: left;
+        padding: 20px;
+        border: 2px solid black;
+        background-color: lightblue;
+    }
+    </style>
+
+
+    </head>
+    <body>
+        <h1> Topic Modelling Demo Examples</h1>
+
+
+        <h3 class = "centre">The three examples are demonstrated.
+        	<ol>
+        		<li> Google News (Scaping web data) </li>
+        		<li> Amazon customer Reviews (Kaggle data set) </li>
+        		<li> NIH data (Medical data) </li>
+        	</ol>
+        		</h3>
+
+
+
+
+
+<p> </p>
+<p> </p>
+<div class="float-child">
+         <h3> Google News Text Review </h3>
+         <form action = "http://localhost:5000/uploader_gnews" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "submit"/>
+        </form>
+</div>
+
+<div class="float-child">
+         <h3> Amazon product Review </h3>
+         <form action = "http://localhost:5000/uploader_amazon" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "submit"/>
+        </form>
+</div>
+
+<div class="float-child">
+         <h3> NIH Medical data </h3>
+         <form action = "http://localhost:5000/uploader_nih" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "submit"/>
+        </form>
+</div>
+
+
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
