@@ -1286,5 +1286,5 @@ def d2v_data():
                      as_attachment=True)
 
 if __name__ == '__main__':
-        #app.run(debug=True)
-        app.run(host="localhost", port=5000, debug=True)
+        app.run(debug=True)
+        # app.run(host="localhost", port=5000, debug=True)
