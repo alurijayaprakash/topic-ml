@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'TopicModelMSIT'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_33A185B6030D484E9B45996A14EA12BD }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5BB76F21EB1D4A968E1B80ED1A51376A }}
